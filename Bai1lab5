@@ -1,0 +1,73 @@
+class NhanVien {
+    private String ten;
+    private long luong;
+
+    public void NhanVien() {
+    }
+
+    public NhanVien(String ten) {
+        this.ten = ten;
+    }
+
+    public String loaiNhanVien() {
+        return "loaiNhanVien";
+    }
+
+    public void tinhLuong() {
+    }
+
+    public void xuatThongTin() {
+        System.out.println("tên nhân viên");
+        System.out.println("lương");
+        System.out.println(" loại nhân viên");
+    }
+}
+
+class NhanVienFullTime extends NhanVien {
+    private int ngayLamThem;
+    private int loaiChucVu;
+
+    public NhanVienFullTime(String ten, int ngayLamThem, int loaiChucVu) {
+        super(ten);
+        this.ngayLamThem = ngayLamThem;
+        this.loaiChucVu = loaiChucVu;
+        tinhLuong();
+    }
+
+    @Override
+    public String loaiNhanVien() {
+        return "Nhân viên Full-time";
+    }
+
+    @Override
+    public void tinhLuong() {
+    }
+}
+
+class NhanVienPartTime extends NhanVien {
+    private int gioLamThem;
+
+    public NhanVienPartTime(String ten, int gioLamThem) {
+        super(ten);
+        this.gioLamThem = gioLamThem;
+        tinhLuong();
+    }
+
+    @Override
+    public String loaiNhanVien() {
+        return "Nhân viên Part-time";
+    }
+
+    @Override
+    public void tinhLuong() {
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        NhanVien nv1 = new NhanVienFullTime("");
+        NhanVien nv2 = new NhanVienPartTime("");
+        nv1.xuatThongTin();
+        nv2.xuatThongTin();
+    }
+}
